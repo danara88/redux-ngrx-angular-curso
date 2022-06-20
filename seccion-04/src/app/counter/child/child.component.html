@@ -1,0 +1,19 @@
+<h3>Child Counter</h3>
+<h4>{{ counter }}</h4>
+
+<div class="row">
+    <div class="col-md-12 text-center mt-5">
+        <button (click)="multiplyCounter()" class="btn btn-primary">
+            Multiply
+        </button>
+        <button (click)="divideCounter()" class="btn btn-info text-white">
+            Divide
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-center mt-5">
+        <app-grandchild></app-grandchild>
+    </div>
+</div>

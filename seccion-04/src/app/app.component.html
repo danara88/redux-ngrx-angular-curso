@@ -1,0 +1,23 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Counter</h1>
+            <h2>{{ counter }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center mt-5">
+            <button class="btn btn-primary" (click)="increaseCounter()">
+                Increase
+            </button>
+            <button class="btn btn-info text-white" (click)="decreaseCounter()">
+                Decrease
+            </button>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <app-child></app-child>
+        </div>
+    </div>
+</div>

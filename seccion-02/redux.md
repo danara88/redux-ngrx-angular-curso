@@ -10,6 +10,8 @@ Como se encuentra determinada variable?
 Puede ser implementado en React, Vanilla JS, Angular y mas.
 Cualquier componente puede cambiar la data en una aplicacion de Angular.
 
+Cualquier accion que hagamos tiene que hacerse a traves de acciones.
+
 # Los 6 conceptos fundamentales del REDUX
 
 -   Toda la data de la aplicacion, se encuentra en una estructura previamente DEFINIDA.
