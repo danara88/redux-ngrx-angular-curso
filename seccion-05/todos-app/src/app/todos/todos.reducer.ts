@@ -6,6 +6,7 @@ import {
     editTodo,
     deleteTodo,
     toggleAll,
+    clearAllCompleted,
 } from './todos.actions';
 
 export const initialState: Todo[] = [
@@ -17,6 +18,7 @@ export const initialState: Todo[] = [
 // Siempre retornar un nuevo elemento
 // No mutar lo que se devuelve (los objetos pasan como referencia)
 // Dentro del State manipulamos el lugar de memoria donde apuntamos
+// Los pipes no mutan los objetos
 export const todoReducer = createReducer(
     initialState,
     on(createTodo, (state, { description }) => [
@@ -50,5 +52,6 @@ export const todoReducer = createReducer(
     on(deleteTodo, (state, { id }) => state.filter((todo) => todo.id !== id)),
     on(toggleAll, (state, { statusTodo }) =>
         state.map((todo) => ({ ...todo, completed: statusTodo }))
-    )
+    ),
+    on(clearAllCompleted, (state) => state.filter(todo => !todo.completed))
 );
