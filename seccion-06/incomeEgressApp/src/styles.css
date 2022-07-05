@@ -2,3 +2,7 @@
 .cursor {
     cursor: pointer;
 }
+
+.chart {
+    width: 300px;
+}

@@ -15,6 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -26,8 +27,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthService } from './services/auth.service';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { SortItemsPipe } from './pipes/sort-items.pipe';
+
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
     declarations: [
@@ -41,6 +43,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         NavbarComponent,
         SidebarComponent,
         DashboardComponent,
+        SortItemsPipe,
     ],
     imports: [
         BrowserModule,
@@ -58,8 +61,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
             logOnly: environment.production, // Restrict extension to log-only mode
             autoPause: true, // Pauses recording actions and state changes when the extension window is not open
         }),
+        NgChartsModule,
     ],
-    providers: [AuthService],
+    providers: [],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

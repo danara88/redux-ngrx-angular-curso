@@ -15,11 +15,18 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Descripción</td>
-                            <td>Monto</td>
-                            <td>Tipo</td>
-                            <td>acciones</td>
+                        <tr *ngFor="let item of incomeEgressItems | sortItems">
+                            <td>{{item.description}}</td>
+                            <td>{{item.amount | currency}}</td>
+                            <td [class.text-danger] = "item.type === 'egress'" [class.text-success] = "item.type === 'income'">
+                                {{item.type}}
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm" (click)="deleteItem(item.uid!)">
+                                    <i class="fa fa-trash"></i>
+                                    Borrar
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

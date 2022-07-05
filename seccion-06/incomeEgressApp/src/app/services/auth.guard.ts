@@ -7,6 +7,11 @@ import { AuthService } from './auth.service';
     providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
+    /**
+     * Main constructor
+     * @param _authService
+     * @param router
+     */
     constructor(private _authService: AuthService, private router: Router) {}
     canActivate(): Observable<boolean> {
         return this._authService.isAuth().pipe(
