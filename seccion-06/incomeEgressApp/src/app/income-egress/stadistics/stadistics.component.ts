@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ChartData, ChartType } from 'chart.js';
-import { AppState } from 'src/app/app.reducer';
 import { IncomeEgress } from 'src/app/models/income-egress.model';
+import { AppStateWithIncomeEgress } from '../income-egress.reducer';
 
 @Component({
     selector: 'app-stadistics',
@@ -19,7 +19,7 @@ export class StadisticsComponent implements OnInit {
         datasets: [{ data: [0, 0] }],
     };
 
-    constructor(private _store: Store<AppState>) {}
+    constructor(private _store: Store<AppStateWithIncomeEgress>) {}
 
     ngOnInit(): void {
         this._store.select('incomeEgress').subscribe(({ items }) => this.getStadistics(items));
