@@ -1,1 +1,11 @@
-<p>user works!</p>
+<div class="row">
+  <div class="col-md-4">
+    <img [src]="user?.avatar" class="img-thumbnail">
+  </div>
+  <div class="col">
+    <ul class="list-group">
+      <li class="list-group-item">First Name: {{user?.first_name}}</li>
+      <li class="list-group-item">Last Name: {{user?.last_name}}</li>
+    </ul>
+  </div>
+</div>

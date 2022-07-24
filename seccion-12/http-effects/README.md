@@ -1,27 +1,21 @@
-# HttpEffects
+# Que son los efectos ?
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+Los efectos son como la tercera ley de Newton **Por cada accion hay una reaccion**.
+Esas reaccion seria un efecto. No todas las acciones dispararan efectos.
+Esa accion puede se escuchada por un efecto.
 
-## Development server
+-   Un efecto escucha acciones que son despachadas por el ngrx/store.
+-   Simplificar la logica en los componentes
+-   Comunicarse fuera de la app de Angular (Http o Sockets)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+El STORE esta compuesto por:
 
-## Code scaffolding
+-   Estado
+-   Acciones
+-   Reducer
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Componente -> Accion -> Reducer -> Estado -> Componente
 
-## Build
+Las acciones son funciones puras que solo deben trabajar con la informacion que disponen. No deben de hacer peticiones asincronas. Solo trabajar con el payload y nunca necesitar recursos externos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Cuando disparas una accion, puedes crear un efecto que escuche esa determinada accion. El efecto puede comunicarse a un servicio, el servicio a un servidor y la respuesta notifica al servicio y el servicio notifica al efecto, el efecto dispara una nueva accion para que llegue al reducer y se cree un nuevo estado.

@@ -13,6 +13,14 @@ export class UserService {
     constructor(private _http: HttpClient) {}
 
     getUsers(): Observable<User[]> {
-        return this._http.get<User[]>(`${this._apiUrl}users`).pipe(map((resp: any) => resp.data));
+        return this._http
+            .get<User[]>(`${this._apiUrl}/users?per_page=6&delay=3`)
+            .pipe(map((resp: any) => resp.data));
+    }
+
+    getUserById(id: string): Observable<User> {
+        return this._http
+            .get<User>(`${this._apiUrl}/users/${id}`)
+            .pipe(map((resp: any) => resp.data));
     }
 }
